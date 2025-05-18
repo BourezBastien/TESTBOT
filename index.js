@@ -47,7 +47,7 @@ const rest = new REST({ version: '10' }).setToken(TOKEN);
   try {
     console.log('🔄 Déploiement des commandes slash sur le serveur...');
     await rest.put(
-      Routes.applicationGuildCommands(client.user?.id || 'bot-id-not-ready-yet', GUILD_ID),
+      Routes.applicationGuildCommands(process.env.DISCORD_CLIENT_ID || 'bot-id-not-ready-yet', GUILD_ID),
       { body: commands },
     );
     console.log('✅ Commandes déployées avec succès');
